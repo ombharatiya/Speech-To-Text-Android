@@ -73,26 +73,12 @@ public class MainActivity extends AppCompatActivity {
         wp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) throws NullPointerException {
-//                Cursor c = getContentResolver().query(ContactsContract.Data.CONTENT_URI,
-//                        new String[] { ContactsContract.Contacts.Data._ID }, ContactsContract.Data.DATA1 + "=?",
-//                        new String[] { "OM" }, null);
-//                c.moveToFirst();
                 if(result!=null) {
-//                    Intent i = new Intent(Intent.ACTION_SENDTO, Uri.parse("content://com.android.contacts/data/" + c.getString(0)));
-//                    i.setType("text/plain");
-//                    i.setPackage("com.whatsapp");           // so that only Whatsapp reacts and not the chooser
-//                    i.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-//                    i.putExtra(Intent.EXTRA_TEXT, "I'm the body.");
-//                    startActivity(i);
-//                    c.close();
-
-
                     Toast.makeText(v.getContext(),"To whatsapp...",Toast.LENGTH_SHORT).show();
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
                     Log.e("JUST FOR TESTING",result.get(0));
                     sendIntent.putExtra(Intent.EXTRA_TEXT, result.get(0));
-//                    sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
                     sendIntent.setType("text/plain");
                     sendIntent.setPackage("com.whatsapp");
                     startActivity(sendIntent);
