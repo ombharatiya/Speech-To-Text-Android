@@ -1,10 +1,7 @@
 package com.wordpress.letssmileagain.www.googlestt;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,21 +18,6 @@ import java.util.Locale;
  *
  */
 
-import android.content.Intent;
-import android.speech.RecognizerIntent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Locale;
-
-import static android.R.attr.id;
-import static android.R.attr.start;
-import static com.wordpress.letssmileagain.www.googlestt.R.id.mic;
 
 public class MainActivity extends AppCompatActivity {
 
