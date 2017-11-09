@@ -1,9 +1,13 @@
 package com.wordpress.letssmileagain.www.googlestt;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,6 +33,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import static android.R.attr.id;
 import static android.R.attr.start;
 import static com.wordpress.letssmileagain.www.googlestt.R.id.mic;
 
@@ -37,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView txtView;
-
-    ImageView mic;
+    ArrayList<String> result = null;
+    ImageView mic, wp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         txtView  = (TextView) findViewById(R.id.textView);
         mic = (ImageView) findViewById(R.id.mic);
+        wp = (ImageView) findViewById(R.id.whatsapp);
 
         mic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +69,39 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        wp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) throws NullPointerException {
+//                Cursor c = getContentResolver().query(ContactsContract.Data.CONTENT_URI,
+//                        new String[] { ContactsContract.Contacts.Data._ID }, ContactsContract.Data.DATA1 + "=?",
+//                        new String[] { "OM" }, null);
+//                c.moveToFirst();
+                if(result!=null) {
+//                    Intent i = new Intent(Intent.ACTION_SENDTO, Uri.parse("content://com.android.contacts/data/" + c.getString(0)));
+//                    i.setType("text/plain");
+//                    i.setPackage("com.whatsapp");           // so that only Whatsapp reacts and not the chooser
+//                    i.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+//                    i.putExtra(Intent.EXTRA_TEXT, "I'm the body.");
+//                    startActivity(i);
+//                    c.close();
+
+
+                    Toast.makeText(v.getContext(),"To whatsapp...",Toast.LENGTH_SHORT).show();
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    Log.e("JUST FOR TESTING",result.get(0));
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, result.get(0));
+//                    sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                    sendIntent.setType("text/plain");
+                    sendIntent.setPackage("com.whatsapp");
+                    startActivity(sendIntent);
+                }
+                else{
+                    Toast.makeText(v.getContext(),"First Say Something in the Mic!!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -71,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode==5) {
             if(resultCode==RESULT_OK && data!=null) {
-                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 txtView.setText(result.get(0));
             }
         }

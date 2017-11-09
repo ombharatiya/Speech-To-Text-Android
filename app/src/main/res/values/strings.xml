@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Say it!</string>
+    <string name="mic_desc">This is Mic</string>
+    <string name="wp_desc">This is Whatsapp</string>
 </resources>
