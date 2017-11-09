@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Say it!</string>
+    <string name="app_name">Say Now!</string>
     <string name="mic_desc">This is Mic</string>
     <string name="wp_desc">This is Whatsapp</string>
+    <string name="tw_desc">This is Twitter</string>
+    <string name="more_desc">This is more sharing options</string>
+    <string name="share_using">Share using...</string>
 </resources>
