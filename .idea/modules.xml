@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GoogleSTT.iml" filepath="$PROJECT_DIR$/GoogleSTT.iml" />
+      <module fileurl="file://F:\GIT\Speech-To-Text-Android\GoogleSTT.iml" filepath="F:\GIT\Speech-To-Text-Android\GoogleSTT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Speech-To-Text-Android.iml" filepath="$PROJECT_DIR$/Speech-To-Text-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://F:\GIT\Speech-To-Text-Android\app\app.iml" filepath="F:\GIT\Speech-To-Text-Android\app\app.iml" />
     </modules>
   </component>
 </project>
